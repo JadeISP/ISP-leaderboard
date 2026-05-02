@@ -131,14 +131,8 @@
         <th>Score</th>
       </tr>
       <tr>
-        <td class="first">Threnody</td>
-        <td>Speedrun (lvl: 3501)</td>
-        <td class="third">7 hours 5 minutes</td>
       </tr>
       <tr>
-        <td class="first">Berry</td>
-        <td>Speedrun (lvl: 3501)</td>
-        <td class="third">~1 week</td>
       </tr>
     </table>
 
@@ -148,15 +142,45 @@
         <th>Type</th>
         <th>Score</th>
       </tr>
-      <tr id="wrapper_3">
-        <td class="first">Jade</td>
-        <td>Low TT (3500 Kill)</td>
-        <td class="third">TT 0</td>
+      <tr>
       </tr>
     </table>
   </div>
 
   <script>
+    window.onload = () => {
+      function addElement(el, type) {
+        const t = document.createElement("tr")
+        const td1 = document.createElement("td")
+        const td2 = document.createElement("td")
+        const td3 = document.createElement("td")
+        td1.classList.add("first");
+        td3.classList.add("third");
+        td1.textContent = el.name
+        td2.textContent = el.type;
+        td3.textContent = el.score;
+        t.appendChild(td1);
+        t.appendChild(td2);
+        t.appendChild(td3);
+    
+        type === "Speedrun" ? a.children[0].appendChild(t) : b.children[0].appendChild(t)
+    }
+    const a = {
+        name: "Threnody",
+        type: "Speedrun (lvl: 3501)",
+       score: "7 hours 5 minutes"
+    }
+    const b = {
+        name: "Berry",
+        type: "Speedrun (lvl: 3501)",
+        score: "3 days";
+    }
+    const c = {
+        name: "Jade",
+        type: "Low TT (3500 Kill)",
+        score: "TT 0"
+    }
+  }
     function change(id) {
       const active = document.querySelector(".active");
       const next = document.getElementById(id);
